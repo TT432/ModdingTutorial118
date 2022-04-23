@@ -8,7 +8,7 @@
 	- [基础项目配置](/基础项目配置/基础项目配置.md)
 	- [项目结构](/基础项目配置/项目结构.md)
 	- [Minecraft 中的概念](/基础项目配置/Minecraft中的概念.md)
-- 第一个方块
+- 第一个方块与 DataGeneration
 	- [第一个方块](第一个方块/第一个方块.md)
 	- [Data Generation](第一个方块/DataGeneration.md)
 - 小工具
