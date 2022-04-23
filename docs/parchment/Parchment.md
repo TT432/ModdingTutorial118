@@ -36,3 +36,4 @@ minecraft {
     // 需要你添加的内容
     mappings channel: 'parchment', version: '2022.03.13-1.18.2'
 ```
+然后重新加载 gradle 项目即可。
