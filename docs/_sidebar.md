@@ -11,6 +11,8 @@
 - 第一个方块与 DataGeneration
 	- [第一个方块](第一个方块/第一个方块.md)
 	- [Data Generation](第一个方块/DataGeneration.md)
+- 第一个 Block Entity
+    - [第一个BlockEntity](BlockEntity/第一个BlockEntity.md)
 - Parchment 映射表
 	- [Parchment 简述与使用](parchment/Parchment.md)
 - 能力系统
