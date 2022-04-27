@@ -1,4 +1,7 @@
 # Data Generation
+
+[友链：一个专门的 DataGen 教程](https://skyinr.github.io/DatagenBook/)
+
 如果你在上一节运行了 mod，会发现物品和方块的纹理都是经典紫黑块并且没有一个好名字。为了解决这个问题，我们需要制作模型和一堆其他 json。
 
 我们将使用 Data Generation 来生成这些 json，因为这是最灵活的方式，也可以避免一些手写 json 带来的错误。
