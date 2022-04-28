@@ -35,6 +35,23 @@ public class TutorialBlockEntities {
         BLOCK_ENTITIES.register(bus);
     }
 }
+
+@Mod(Tutorial.MOD_ID)
+public class Tutorial {
+    ...
+    
+    public Tutorial() {
+        ...
+        
+        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ...
+
+        // 不要忘了在主类调用注册方法
+        TutorialBlockEntities.register(modbus);
+        TutorialBlocks.register(modbus);
+    }
+}
 ```
 
 BlockEntity 类：
