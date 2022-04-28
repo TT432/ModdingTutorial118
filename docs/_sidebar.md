@@ -1,28 +1,26 @@
-- 开始
-	- [首页](/开始/首页.md)
-	- [前言](/开始/前言.md)
-	- [开发资源](/开始/开发资源.md)
-	- [建议](/开始/建议.md)
-- 移植
-- 基础项目配置
-	- [基础项目配置](/基础项目配置/基础项目配置.md)
-	- [项目结构](/基础项目配置/项目结构.md)
-	- [Minecraft 中的概念](/基础项目配置/Minecraft中的概念.md)
-- 第一个方块与 DataGeneration
-	- [第一个方块](第一个方块/第一个方块.md)
-	- [Data Generation](第一个方块/DataGeneration.md)
-- Parchment 映射表
-	- [Parchment 简述与使用](parchment/Parchment.md)
-- 第一个 Block Entity
-    - [第一个BlockEntity](BlockEntity/第一个BlockEntity.md)
-- 能力系统
-	- [Capability](capability/Capability.md)
-- 世界信息保存
-    - [SavedData](savedData/SavedData.md)
-- 小工具
-	- [延时执行](小工具/延时执行.md)
-	- [从 Json 到 BakedModel](小工具/从Json到BakedModel.md)
-	- [漏斗支持](小工具/漏斗支持.md)
-	- [Gson 工具类](小工具/Gson工具.md)
-- 好奇心
-    - [没有生物群系的世界](好奇心/没有生物群系的世界.md)
+- 序章
+	- [首页](/0序章/首页.md)
+	- [前言](/0序章/前言.md)
+	- [开发资源](/0序章/开发资源.md)
+	- [建议](/0序章/建议.md)
+- 基础
+	- [基础项目配置](1基础/基础项目配置/基础项目配置.md)
+	- [项目结构](1基础/基础项目配置/项目结构.md)
+	- [Parchment 简述与使用](1基础/parchment/Parchment.md)
+	- [Minecraft 中的概念](1基础/基础项目配置/Minecraft中的概念.md)
+	- [第一个方块](1基础/第一个方块/第一个方块.md)
+	- [Data Generation](1基础/datagen/DataGeneration.md)
+    - [第一个BlockEntity](1基础/BlockEntity/第一个BlockEntity.md)
+- 进阶
+	- [Capability](2进阶/capability/Capability.md)
+	- [Gui 与 Menu](2进阶/gui/gui.md)
+    - [SavedData](2进阶/savedData/SavedData.md)
+- 附加内容
+  - 移植
+  - 小工具
+	- [延时执行](inf附加内容/小工具/延时执行.md)
+	- [从 Json 到 BakedModel](inf附加内容/小工具/从Json到BakedModel.md)
+	- [漏斗支持](inf附加内容/小工具/漏斗支持.md)
+	- [Gson 工具类](inf附加内容/小工具/Gson工具.md)
+  - 好奇心
+    - [没有生物群系的世界](inf附加内容/好奇心/没有生物群系的世界.md)
