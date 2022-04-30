@@ -1,6 +1,6 @@
 # Parchment 简述与使用
 
-[有条件的可以移步 GitHub 看原文](https://github.com/ParchmentMC/Parchment/wiki/Getting-Started)
+[有条件的可以移步 GitHub 看原文](https://github.com/ParchmentMC/Librarian/blob/dev/docs/FORGEGRADLE.md)
 
 简单来说，Parchment 是一个参数表，用来补足官方表的参数。
 
