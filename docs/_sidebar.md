@@ -7,7 +7,7 @@
 	- [项目配置](1基础/基础项目配置/基础项目配置.md)
 	- [项目结构](1基础/基础项目配置/项目结构.md)
 	- [Parchment 简述与使用](1基础/parchment/Parchment.md)
-	- [第一个物品](1基础/第一个物品/第一个物品.md)
+	- [第一个物品](1基础/物品/第一个物品.md)
 	- [第一个方块](1基础/第一个方块/第一个方块.md)
 	- [Data Generation](1基础/datagen/DataGeneration.md)
     - [第一个BlockEntity](1基础/BlockEntity/第一个BlockEntity.md)
