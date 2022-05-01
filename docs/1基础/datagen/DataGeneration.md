@@ -54,6 +54,91 @@ public class TutRecipes extends RecipeProvider {
 ```
 2. 战利品表:
 ``` java
+public abstract class BaseLootTableProvider extends LootTableProvider {
+
+    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+
+    protected final Map<Block, LootTable.Builder> lootTables = new HashMap<>();
+    private final DataGenerator generator;
+
+    public BaseLootTableProvider(DataGenerator dataGeneratorIn) {
+        super(dataGeneratorIn);
+        this.generator = dataGeneratorIn;
+    }
+
+    protected abstract void addTables();
+
+    protected LootTable.Builder createStandardTable(String name, Block block, BlockEntityType<?> type) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(block)
+                        .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
+                        .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+                                .copy("Info", "BlockEntityTag.Info", CopyNbtFunction.MergeStrategy.REPLACE)
+                                .copy("Inventory", "BlockEntityTag.Inventory", CopyNbtFunction.MergeStrategy.REPLACE)
+                                .copy("Energy", "BlockEntityTag.Energy", CopyNbtFunction.MergeStrategy.REPLACE))
+                        .apply(SetContainerContents.setContents(type)
+                                .withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))))
+                );
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createSimpleTable(String name, Block block) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(block));
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createSilkTouchTable(String name, Block block, Item lootItem, float min, float max) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(AlternativesEntry.alternatives(
+                                LootItem.lootTableItem(block)
+                                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item()
+                                                .hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))))),
+                                LootItem.lootTableItem(lootItem)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1))
+                                        .apply(ApplyExplosionDecay.explosionDecay())
+                        )
+                );
+        return LootTable.lootTable().withPool(builder);
+    }
+
+
+    @Override
+    public void run(HashCache cache) {
+        addTables();
+
+        Map<ResourceLocation, LootTable> tables = new HashMap<>();
+        for (Map.Entry<Block, LootTable.Builder> entry : lootTables.entrySet()) {
+            tables.put(entry.getKey().getLootTable(), entry.getValue().setParamSet(LootContextParamSets.BLOCK).build());
+        }
+        writeTables(cache, tables);
+    }
+
+    private void writeTables(HashCache cache, Map<ResourceLocation, LootTable> tables) {
+        Path outputFolder = this.generator.getOutputFolder();
+        tables.forEach((key, lootTable) -> {
+            Path path = outputFolder.resolve("data/" + key.getNamespace() + "/loot_tables/" + key.getPath() + ".json");
+            try {
+                DataProvider.save(GSON, cache, LootTables.serialize(lootTable), path);
+            } catch (IOException e) {
+                LOGGER.error("Couldn't write loot table {}", path, e);
+            }
+        });
+    }
+
+    @Override
+    public String getName() {
+        return "MyTutorial LootTables";
+    }
+}
 public class TutLootTables extends BaseLootTableProvider {
 
     public TutLootTables(DataGenerator dataGeneratorIn) {
@@ -156,7 +241,7 @@ public class TutBlockStates extends BlockStateProvider {
     }
 }
 ```
-7. 物品模型:
+8. 物品模型:
 ```java
 public class TutItemModels extends ItemModelProvider {
 

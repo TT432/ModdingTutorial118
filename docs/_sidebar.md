@@ -4,14 +4,15 @@
 	- [开发资源](/0序章/开发资源.md)
 	- [建议](/0序章/建议.md)
 - 基础
-	- [基础项目配置](1基础/基础项目配置/基础项目配置.md)
+	- [项目配置](1基础/基础项目配置/基础项目配置.md)
 	- [项目结构](1基础/基础项目配置/项目结构.md)
 	- [Parchment 简述与使用](1基础/parchment/Parchment.md)
-	- [Minecraft 中的概念](1基础/基础项目配置/Minecraft中的概念.md)
+	- [第一个物品](1基础/第一个物品/第一个物品.md)
 	- [第一个方块](1基础/第一个方块/第一个方块.md)
 	- [Data Generation](1基础/datagen/DataGeneration.md)
     - [第一个BlockEntity](1基础/BlockEntity/第一个BlockEntity.md)
 - 进阶
+	- [Minecraft 中的概念](1基础/基础项目配置/Minecraft中的概念.md)
 	- [Capability](2进阶/capability/Capability.md)
 	- [Gui 与 Menu](2进阶/gui/gui.md)
     - [SavedData](2进阶/savedData/SavedData.md)
