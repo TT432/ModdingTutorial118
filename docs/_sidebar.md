@@ -12,7 +12,6 @@
 	- [Data Generation](1基础/datagen/DataGeneration.md)
     - [第一个BlockEntity](1基础/BlockEntity/第一个BlockEntity.md)
 - 进阶
-	- [Minecraft 中的概念](1基础/基础项目配置/Minecraft中的概念.md)
 	- [Capability](2进阶/capability/Capability.md)
 	- [Gui 与 Menu](2进阶/gui/gui.md)
     - [SavedData](2进阶/savedData/SavedData.md)
