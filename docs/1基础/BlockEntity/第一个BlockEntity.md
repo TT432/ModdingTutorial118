@@ -101,6 +101,9 @@ public class TutorialBlockEntity extends BlockEntity {
             ClientboundBlockEntityDataPacket p = ClientboundBlockEntityDataPacket.create(this);
             ((ServerLevel)this.level).getChunkSource().chunkMap.getPlayers(new ChunkPos(getBlockPos()), false)
                     .forEach(k -> k.connection.send(p));
+
+            // 用来告知 mc，“这个方块得保存”的东西，你也可以在其他地方调用
+            setChanged();
         }
     }
 
