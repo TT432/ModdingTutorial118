@@ -5,6 +5,7 @@ Capability 是一套由 forge 添加的系统，可以方便得帮你把数据�
 接下来将以为玩家附加一个 Capability 作为演示，讲述它的使用方法。
 
 先创建一个 Capability 类：
+
 ```java
 public class TutorialCapability implements INBTSerializable<CompoundTag> {
     Player player;
@@ -33,7 +34,9 @@ public class TutorialCapability implements INBTSerializable<CompoundTag> {
     }
 }
 ```
+
 为了它能够附加到玩家身上，我们还需要一个 CapabilityProvider：
+
 ```java
 public class TutorialCapabilityProvider extends CapabilityProvider<TutorialCapabilityProvider> implements INBTSerializable<CompoundTag> {
     public static final Capability<TutorialCapability> CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
@@ -62,11 +65,13 @@ public class TutorialCapabilityProvider extends CapabilityProvider<TutorialCapab
     }
 }
 ```
+
 保存数据的载体是 CapabilityProvider，如果它实现了 INBTSerializable 就会自动保存数据到相应对象的 nbt 中。
 
 注意：他并不会自动同步服务端到客户端的差异，同步的方法将在下张讲到。
 
 接下来需要在 TutorialCapabilityRegistry 中注册我们的 capability：
+
 ```java
 /** 构建对象时触发该事件，本案例中在新玩家进入游戏时为他附加 Capability */
 public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event){
@@ -101,6 +106,7 @@ public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
 ```
 
 而后，在 ModSetup 中新建一个方法：
+
 ```java
 public static void setup() {
     IEventBus bus = MinecraftForge.EVENT_BUS;
@@ -109,9 +115,11 @@ public static void setup() {
     bus.addListener(TutorialCapabilityRegistry::onRegisterCapabilities);
 }
 ```
+
 最后在主类调用它即可。
 
 我们来写个测试物品试一下吧：
+
 ```java
 public class TestItem extends Item {
     public TestItem(Properties pProperties) {
