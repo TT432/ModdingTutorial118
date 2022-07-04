@@ -4,16 +4,17 @@
 
 简单来说，Parchment 是一个参数表，用来补足官方表的参数。
 
-听不懂没关系，只需要知道他是可以帮你解决
+听不懂没关系，只需要知道他是可以帮你解决下面这种情况的工具就可以。
+
 ```java
 public Block(Properties p_49795_)
 ```
-的工具就可以。
 
-使用方法：
+## 使用方法
 
 修改 build.gradle 文件
-```java
+
+```groovy
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
